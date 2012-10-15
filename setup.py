@@ -4,8 +4,7 @@ try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
-import sensu
-version = sensu.__version__
+version = '0.0.1'
 
 setup(
     name='sensu',
