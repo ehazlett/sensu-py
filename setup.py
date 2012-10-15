@@ -11,8 +11,7 @@ setup(
     version=version,
     description='Python plugin for the Sensu monitoring framework',
     url='http://github.com/ehazlett/sensu-py',
-    download_url=('http://cloud.github.com/downloads/ehazlett/'
-                  'sensu-py/sensu-py-%s.tar.gz' % version),
+    download_url=('https://github.com/ehazlett/sensu-py/zipball/%s' % version),
     author='Evan Hazlett',
     author_email='ejhazlett@gmail.com',
     keywords=['sensu', 'plugin', 'monitoring'],
