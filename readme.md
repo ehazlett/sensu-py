@@ -9,6 +9,14 @@ ported from https://github.com/sensu/sensu-plugin/blob/master/lib/sensu-handler.
 The Python plugin will take care of things like check stashes (silencing), dependency check monitoring,
 periodic notifications, etc.
 
+# Installation
+
+* `pip install sensu`
+
+or
+
+* `python setup.py install`
+
 # Usage
 
 Create a Sensu handler, derive from `sensu.Handler`, and override the `handle` method.
