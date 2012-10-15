@@ -1,0 +1,29 @@
+{
+  "rabbitmq": {
+    "host": "localhost",
+    "port": 5672,
+    "user": "rabbit",
+    "password": "rabbit",
+    "vhost": "sensu"
+  },
+  "redis": {
+    "host": "localhost",
+    "port": 6379
+  },
+  "api": {
+    "host": "10.10.10.250",
+    "port": 4567
+  },
+  "dashboard": {
+    "host": "localhost",
+    "port": 8080,
+    "user": "admin",
+    "password": "sensu"
+  },
+  "handlers": {
+    "default": {
+      "type": "pipe",
+      "command": "/etc/sensu/handlers/default"
+    }
+  }
+}
