@@ -11,7 +11,7 @@ setup(
     name='sensu',
     version=version,
     description='Python plugin for the Sensu monitoring framework',
-    url='http://github.com/ehazlett/sensu-plugin',
+    url='http://github.com/ehazlett/sensu-py',
     download_url=('http://cloud.github.com/downloads/ehazlett/'
                   'sensu-py/sensu-py-%s.tar.gz' % version),
     author='Evan Hazlett',
