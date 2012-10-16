@@ -17,18 +17,20 @@ class MailHandler(Handler):
         to = self.settings.get('mail', {}).get('to', 'root@localhost')
         from_addr = self.settings.get('mail', {}).get('from', 'sensu@localhost')
         host = self.settings.get('mail', {}).get('host', 'localhost')
+        port = self.settings.get('mail', {}).get('port', 25)
         user = self.settings.get('mail', {}).get('user', None)
         password = self.settings.get('mail', {}).get('password', None)
-        self.send(subj, to, from_addr, host, user, password)
+        self.send(subj, to, from_addr, host, port, user, password)
 
-    def send(self, subj=None, to_addr=None, from_addr=None, host='localhost', user=None, password=None):
+    def send(self, subj=None, to_addr=None, from_addr=None, host='localhost',
+        port=25, user=None, password=None):
         # attempt to parse sensu message
         try:
             data = self.event
             host = data.get('client', {}).get('name')
             check_name = data.get('check', {}).get('name')
             check_action = data.get('action')
-            timestamp = data.get('check', {}).get('issued')
+            timestamp = data.get('timestamp')
             check_date = datetime.fromtimestamp(int(timestamp)).strftime('%Y-%m-%d %H:%M:%S')
             parts = (
                 'Date: {0}'.format(check_date),
@@ -47,7 +49,7 @@ class MailHandler(Handler):
         msg['Subject'] = subj
         msg['To'] = to_addr
         msg['From'] = from_addr
-        s = smtplib.SMTP(host)
+        s = smtplib.SMTP(host, int(port))
         if user:
             s.login(user, password)
         s.sendmail(from_addr, [to_addr], msg.as_string())

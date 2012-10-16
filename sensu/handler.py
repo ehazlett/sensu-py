@@ -29,7 +29,6 @@ class HandlerException(BaseException):
 class Handler(object):
     def __init__(self):
         self.settings = utils.load_settings()
-        self.full_event = {}
         self.event = {}
         self.read_event()
         if not os.environ.has_key('SENSU_TEST'):
@@ -51,8 +50,11 @@ class Handler(object):
             sys.exit(0)
 
     def read_event(self):
-        self.full_event = utils.read_event()
-        self.event = self.full_event.get('event')
+        evt = utils.read_event()
+        if evt.has_key('event'):
+            self.event = evt.get('event')
+        else:
+            self.event = evt
 
     def handle(self):
         raise HandlerException('No handle functionality defined')
@@ -74,7 +76,7 @@ class Handler(object):
         occurrences = chk.get('occurrences', 1)
         interval = chk.get('interval', 30)
         refresh = chk.get('refresh', 1800)
-        if self.full_event.get('occurrences') < occurrences:
+        if self.event.get('occurrences') < occurrences:
             self.bail('not enough occurrences')
         if self.event.get('occurrences') > occurrences and \
             self.event.get('action') == 'create':
