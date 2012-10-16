@@ -50,9 +50,11 @@ class UtilsTestCase(unittest.TestCase):
 
     def test_read_event(self):
         evt = utils.read_event(self.sample_event)
-        self.assertTrue(evt.has_key('check'))
-        self.assertTrue(evt.has_key('action'))
-        self.assertTrue(evt.has_key('occurrences'))
+        self.assertTrue(evt.has_key('event'))
+        self.assertTrue(evt.get('event').has_key('check'))
+        self.assertTrue(evt.get('event').has_key('check'))
+        self.assertTrue(evt.get('event').has_key('action'))
+        self.assertTrue(evt.get('event').has_key('occurrences'))
 
     def test_load_settings(self):
         os.environ['SENSU_CONFIG_FILES'] = '{0}:{1}'.format(self.cfg_file_1,

@@ -84,4 +84,4 @@ def read_event(data=None):
             event = json.loads(sys.stdin.read())
     else:
         event = json.loads(data)
-    return event.get('event', {})
+    return event
