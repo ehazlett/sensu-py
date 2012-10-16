@@ -30,7 +30,7 @@ class MailHandler(Handler):
             host = data.get('client', {}).get('name')
             check_name = data.get('check', {}).get('name')
             check_action = data.get('action')
-            timestamp = data.get('timestamp')
+            timestamp = data.get('check', {}).get('issued')
             check_date = datetime.fromtimestamp(int(timestamp)).strftime('%Y-%m-%d %H:%M:%S')
             parts = (
                 'Date: {0}'.format(check_date),

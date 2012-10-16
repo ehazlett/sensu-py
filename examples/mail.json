@@ -4,6 +4,7 @@
     "to": "root@localhost",
     "from": "sensu@localhost",
     "host": "localhost",
+    "port": 25,
     "user": null,
     "password": null
   }
