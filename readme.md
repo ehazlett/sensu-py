@@ -11,15 +11,13 @@ periodic notifications, etc.
 
 # Installation
 
-* `pip install sensu`
-
-or
-
-* `python setup.py install`
+`pip install sensu` or `python setup.py install`
 
 # Usage
 
 Create a Sensu handler, derive from `sensu.Handler`, and override the `handle` method.
 The Python plugin will handle the filters, checks, etc.
 
+# Example
 
+See the `examples` directory for examples.

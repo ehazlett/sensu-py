@@ -1,0 +1,10 @@
+{
+  "mail": {
+    "subject": "Sensu Alert",
+    "to": "root@localhost",
+    "from": "sensu@localhost",
+    "host": "localhost",
+    "user": null,
+    "password": null
+  }
+}

@@ -95,7 +95,7 @@ class Handler(object):
             'check': '/silence/{0}/{1}'.format(client_name, check_name),
         }
         for s in stashes:
-            if self.stash_exists(s):
+            if self.stash_exists(stashes[s]):
                 self.bail('{0} alerts silenced'.format(s))
                 return True
         return False
