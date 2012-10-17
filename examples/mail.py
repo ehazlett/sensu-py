@@ -42,7 +42,7 @@ class MailHandler(Handler):
                 'Output: {0}'.format(data.get('check', {}).get('output')),
             )
             text = '\n'.join(parts)
-            subj = '{0} [{1}: {2} ({3})]'.format(subj, host, check_name, check_action)
+            subj = '{0} [{1}: {2} ({3})]'.format(subj, client_host, check_name, check_action)
         except Exception, e:
             text = str(e)
         msg = MIMEText(text)
