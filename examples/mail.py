@@ -27,14 +27,14 @@ class MailHandler(Handler):
         # attempt to parse sensu message
         try:
             data = self.event
-            host = data.get('client', {}).get('name')
+            client_host = data.get('client', {}).get('name')
             check_name = data.get('check', {}).get('name')
             check_action = data.get('action')
             timestamp = data.get('check', {}).get('issued')
             check_date = datetime.fromtimestamp(int(timestamp)).strftime('%Y-%m-%d %H:%M:%S')
             parts = (
                 'Date: {0}'.format(check_date),
-                'Host: {0}'.format(host),
+                'Host: {0}'.format(client_host),
                 'Address: {0}'.format(data.get('client', {}).get('address')),
                 'Action: {0}'.format(check_action),
                 'Name: {0}'.format(check_name),
